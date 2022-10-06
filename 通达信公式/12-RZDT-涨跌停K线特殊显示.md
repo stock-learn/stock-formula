@@ -26,11 +26,15 @@ SWITCH:=(0,1,1); {Param#0}
 ZT:=RS.ZT;
 STICKLINE(SWITCH=1 AND ZT,O,C,2.9,1),RGBXFFD000;{实体}
 {STICKLINE(SWITCH=1 AND ZT AND O>L,L,O,0.01,0),RGBXFFD000;下影线};
+ZTC:=BARSLASTCOUNT(ZT);
+DRAWNUMBER(ZTC>1,L,ZTC),RGBXFFD000;{低点显示连板数}
 
 {跌停}
 DT:=RS.DT;
 STICKLINE(SWITCH=1 AND DT,O,C,2.9,0),RGBX994EE5;{实体}
 {STICKLINE(SWITCH=1 AND DT AND O<H,O,H,0.01,0),RGBX994EE5;上影线};
+DTC:=BARSLASTCOUNT(DT);
+DRAWNUMBER(DTC>1,H,DTC),RGBX994EE5,DRAWABOVE;{高点显示连板数};
 ```
 
 备注：
@@ -49,10 +53,11 @@ STICKLINE(SWITCH=1 AND DT,O,C,2.9,0),RGBX994EE5;{实体}
 **用法注释：**
 
 ```txt
-涨跌停 K 线用特殊颜色重绘
+涨跌停 K 线特殊颜色重绘。
+涨跌停 K 低高点显示连板数。
 Since 2022-10-01 @RJ <rongjih@163.com>
 ```
 
 ## 4. 下载
 
-[RZDT-涨跌停K线特殊显示-v221005.tn6](assets/12-RZDT-涨跌停K线特殊显示-v221005.tn6)
+[RZDT-涨跌停K线特殊显示-v221006.tn6](assets/12-RZDT-涨跌停K线特殊显示-v221006.tn6)
